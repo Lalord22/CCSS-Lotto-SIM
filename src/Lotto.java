@@ -130,7 +130,7 @@ private static void jugarNumeroVeces(int totalArraysToGenerate ) {
         
         // Check if the array has been generated before
         if (generatedArrays.contains(arrayString)) {
-            System.out.println("Duplicate array generated. Regenerating...");
+            //System.out.println("Duplicate array generated. Regenerating...");
             i--; // Decrement i to regenerate a new array in the next iteration
         } else {
         	
@@ -145,32 +145,49 @@ private static void jugarNumeroVeces(int totalArraysToGenerate ) {
             switch (sharedNumbers) {
             case 2:
                 premio+=600;
+                for (int num : randomArray) {
+                    System.out.print(num + " ");
+                }
+                System.out.print(" Premio de 600"); 
                 break;
             case 3:
                 premio+=9500;
+                for (int num : randomArray) {
+                    System.out.print(num + " ");
+                }
+                System.out.print(" Premio de 9.500"); 
                 break;
             case 4:
                 premio+=100000;
+                for (int num : randomArray) {
+                    System.out.print(num + " "+ "Premio de 100.000" + "\n");
+                }
+                System.out.print(" Premio de 100.000"); 
                 break;
             case 5:
                 premio+=jackpot;
+                for (int num : randomArray) {
+                    System.out.print(num + " ");
+                }
+                System.out.print(" JACKPOT!!!!!"); 
                 break;
             default:
-                premio+=0;
+            	for (int num : randomArray) {
+                    System.out.print(num + " ");
+                }
         }
             
             // Print the generated array
-            for (int num : randomArray) {
-                System.out.print(num + " ");
-            }
+            
             System.out.println();
         }
     }
+    System.out.println("Boleto ganador: " + Arrays.toString(winner)+ "\n");
     System.out.print("Numero de veces jugadas:" + totalArraysToGenerate + "\n");
     System.out.print("Monto gastado en boletos:" + costo + "\n");
     System.out.print("Monto ganado en boletos:" + premio + "\n");
     System.out.print("Diferencia total:" + (premio-costo + "\n"));
-    System.out.println("Boleto ganador: " + Arrays.toString(winner));
+    
     
 }
 
@@ -180,28 +197,24 @@ private static void jugarNumeroVeces(int totalArraysToGenerate ) {
 		
 		 
 		 
-		 int totalArraysToGenerate = 3;
-		 
-		
-		 
-		 int n = 41; // Total number of values
-	     int r = 5; // Number of values selected in each combination
+		 int cantidadDeBoletos = 200;  // En esta linea va la cantidad de boletos para jugar 
 	     
 	     
-	     jugarNumeroVeces(totalArraysToGenerate);
+	     jugarNumeroVeces(cantidadDeBoletos);
 	     
-	    /* List<int[]> combinations = generateCombinations(n, r);
+	    /*
+	     El juego tiene 749,398 posibles combinaciones
+	     El costo de todas las combinaciones es 449.638.800
+	     El premio de Jackpot en el momento de programar es de 110.300.000
+	     El premio de todos los boletos ganadores de 100.000 son 41, por lo tanto 41 * 100.000 = 4.100.000
+	     El premio de todos los boletos ganadores de 9.500 son 41*41, por lo tanto 1.681 * 9.500 = 15.969.500
+	     El premio de todos los boletos ganadores de 600 son 41*41*41, por lo tanto 68.921 * 600 = 41.352.600
 	     
-	     for (int[] combination : combinations) {
-	            for (int num : combination) {
-	                System.out.print(num + " ");
-	            }
-	            System.out.println();
-	        }
-		*/
+	     El resultado de comprar todos los boletos es de 449.638.800 - 4.100.000 - 15.969.500 - 41.352.600 = -388.216.700 en perdidas.
 	     
-	     
-
+	    
+	    
+	    */
 	}
 
 }

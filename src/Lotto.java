@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -191,15 +191,37 @@ private static void jugarNumeroVeces(int totalArraysToGenerate ) {
     
 }
 
+private static int getUserInput(Scanner scanner) {
+    int userInput = 0;
+    boolean isValidInput = false;
+    
+    while (!isValidInput) {
+    	System.out.print("Escriba el numero de boletos para jugar: ");
+        
+        if (scanner.hasNextInt()) {
+            userInput = scanner.nextInt();
+            isValidInput = true;
+        } else {
+            System.out.println("Entrada invalida, esriba solo numeros");
+            scanner.nextLine(); // Clear the invalid input from the scanner
+        }
+    }
+    
+    return userInput;
+}
+
 		
 		
 	public static void main(String[] args) {
 		
 		 
-		 
-		 int cantidadDeBoletos = 200;  // En esta linea va la cantidad de boletos para jugar 
-	     
-	     
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		
+		int cantidadDeBoletos = getUserInput(scanner); // En esta linea va la cantidad de boletos para jugar 
+		
+	
 	     jugarNumeroVeces(cantidadDeBoletos);
 	     
 	    /*
